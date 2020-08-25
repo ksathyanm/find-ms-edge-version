@@ -1,0 +1,34 @@
+{
+  "name": "node-module-boilerplate",
+  "version": "0.0.0",
+  "description": "My awesome module",
+  "keywords": [
+    "boilerplate"
+  ],
+  "homepage": "https://github.com/ksathyanm/node-module-boilerplate#readme",
+  "bugs": "https://github.com/ksathyanm/node-module-boilerplate/issues",
+  "repository": "ksathyanm/node-module-boilerplate",
+  "license": "MIT",
+  "author": "Sathyamoorthi Kandhasamy",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "ci": "npm run lint && npm run test",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "mocha ./test.js --timeout 10000"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^7.7.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-node": "^11.1.0",
+    "mocha": "^8.1.2"
+  },
+  "engines": {
+    "node": ">=10"
+  }
+}
