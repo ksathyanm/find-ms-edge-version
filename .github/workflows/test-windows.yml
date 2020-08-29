@@ -3,10 +3,7 @@
 
 name: test-windows
 
-on:
-  pull_request:
-  push:
-    branches: [ master ]
+on: push
 
 jobs:
   test-windows:
