@@ -16,7 +16,7 @@ const canAccess = (file) => {
 }
 
 const windows = (channel) => {
-  const findPath = () => {
+  const path = (() => {
     const paths = {
       stable: normalize("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"),
       beta: normalize("C:/Program Files (x86)/Microsoft/Edge Beta/Application/msedge.exe"),
@@ -30,18 +30,17 @@ const windows = (channel) => {
       }
     }
     throw new Error("Unable to find or access")
-  }
-  const findVersion = () => {
-    const exePath = findPath()
-    const applicationFolder = dirname(exePath)
+  })()
+  const version = (() => {
+    const applicationFolder = dirname(path)
     const contents = fs.readdirSync(applicationFolder)
     return contents.find((name) => versionRegEx.test(name))
-  }
-  return findVersion()
+  })()
+  return { path, version }
 }
 
 const macos = (channel) => {
-  const findPath = () => {
+  const path = (() => {
     const paths = {
       app: "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
       stable: "edge",
@@ -56,13 +55,12 @@ const macos = (channel) => {
       }
     }
     throw new Error("Unable to find or access")
-  }
-  const findVersion = () => {
-    const exePath = findPath()
-    const output = execFileSync(exePath, ["--version"], { encoding: "utf-8" })
+  })()
+  const version = (() => {
+    const output = execFileSync(path, ["--version"], { encoding: "utf-8" })
     return output
-  }
-  return findVersion()
+  })()
+  return { path, version }
 }
 
 const linux = () => {

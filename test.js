@@ -5,12 +5,13 @@ const findEdgeVersion = require("./index.js")
 describe("find edge version", () => {
   it("finds edge version", async () => {
     try {
-      const edgeVersion = await findEdgeVersion()
-      console.log(edgeVersion)
-      expect(edgeVersion).to.exist
-      expect(edgeVersion).to.not.be.empty
-      expect(edgeVersion).to.be.a("string")
-      expect(edgeVersion).to.match(/^\d+.\d+.\d+.\d+$/)
+      const { path, version } = await findEdgeVersion()
+      console.log(path)
+      console.log(version)
+      expect(version).to.exist
+      expect(version).to.not.be.empty
+      expect(version).to.be.a("string")
+      expect(version).to.match(/^\d+.\d+.\d+.\d+$/)
     } catch (error) {
       console.log(error)
       throw error
