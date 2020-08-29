@@ -59,7 +59,7 @@ const macos = (channel) => {
   }
   const findVersion = () => {
     const exePath = findPath()
-    const output = execFileSync(exePath, ["--version"])
+    const output = execFileSync(exePath, ["--version"], { encoding: "utf-8" })
     return output
   }
   return findVersion()
