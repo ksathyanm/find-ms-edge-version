@@ -1,9 +1,11 @@
 {
   "name": "find-edge-version",
-  "version": "0.0.0",
-  "description": "My awesome module",
+  "version": "0.1.0",
+  "description": "Finds installed MS Edge version",
   "keywords": [
-    "boilerplate"
+    "edge",
+    "version",
+    "msedgedriver"
   ],
   "homepage": "https://github.com/ksathyanm/find-edge-version#readme",
   "bugs": "https://github.com/ksathyanm/find-edge-version/issues",

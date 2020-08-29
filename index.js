@@ -1,7 +1,7 @@
-const os = require("os")
 const fs = require("fs")
-const { execFileSync } = require("child_process")
+const os = require("os")
 const { dirname, join } = require("path")
+const { execFileSync } = require("child_process")
 
 const versionRegEx = /\d+.\d+.\d+.\d+/
 
