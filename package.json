@@ -1,13 +1,13 @@
 {
-  "name": "node-module-boilerplate",
+  "name": "find-edge-version",
   "version": "0.0.0",
   "description": "My awesome module",
   "keywords": [
     "boilerplate"
   ],
-  "homepage": "https://github.com/ksathyanm/node-module-boilerplate#readme",
-  "bugs": "https://github.com/ksathyanm/node-module-boilerplate/issues",
-  "repository": "ksathyanm/node-module-boilerplate",
+  "homepage": "https://github.com/ksathyanm/find-edge-version#readme",
+  "bugs": "https://github.com/ksathyanm/find-edge-version/issues",
+  "repository": "ksathyanm/find-edge-version",
   "license": "MIT",
   "author": "Sathyamoorthi Kandhasamy",
   "files": [
@@ -26,7 +26,7 @@
     "eslint": "^7.7.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-node": "^11.1.0",
-    "mocha": "^8.1.2"
+    "mocha": "^8.1.3"
   },
   "engines": {
     "node": ">=10"
