@@ -3,7 +3,7 @@ const fs = require("fs")
 const { execFileSync } = require("child_process")
 const { dirname, join, normalize } = require("path")
 
-const versionRegEx = /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/
+const versionRegEx = /\d+.\d+.\d+.\d+/
 
 const canAccess = (file) => {
   try {
@@ -58,7 +58,7 @@ const macos = (channel) => {
   })()
   const version = (() => {
     const output = execFileSync(path, ["--version"], { encoding: "utf-8" })
-    return output
+    return output.match(versionRegEx)[0]
   })()
   return { path, version }
 }
