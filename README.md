@@ -1,7 +1,7 @@
 # Find edge version
 
-![Windows status](https://github.com/ksathyanm/find-edge-version/workflows/Windows/badge.svg)
-![macOS status](https://github.com/ksathyanm/find-edge-version/workflows/macOS/badge.svg)
+![Test windows status](https://github.com/ksathyanm/find-edge-version/workflows/test-windows/badge.svg)
+![Test macOS status](https://github.com/ksathyanm/find-edge-version/workflows/test-macOS/badge.svg)
 [![NPM Version](https://img.shields.io/npm/v/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
 [![Node.js Version](https://img.shields.io/node/v/find-edge-version)](https://nodejs.org/en/download/)
 [![NPM Downloads](https://img.shields.io/npm/dw/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
