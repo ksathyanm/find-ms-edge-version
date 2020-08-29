@@ -1,72 +1,81 @@
 const os = require("os")
 const fs = require("fs")
-const { join, normalize } = require("path")
+const { execFileSync } = require("child_process")
+const { dirname, join, normalize } = require("path")
+
+const versionRegEx = /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/
 
 const canAccess = (file) => {
-  if (!file) {
-    return false
-  }
   try {
     fs.accessSync(file)
     return true
-  } catch {
+  } catch (error) {
+    console.log(error)
     return false
   }
 }
 
-const formEdgeCanaryAppPath = () => {
-  const home = os.homedir()
-  const exe = join(
-      home,
-      "AppData",
-      "Local",
-      "Microsoft",
-      "Edge SxS",
-      "Application",
-      "msedge.exe",
-  )
-  return normalize(exe)
-}
-
-const win32 = (channel) => {
-  const paths = {
-    stable: () => {
-      return normalize("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe")
-    },
-    beta: () => {
-      return normalize("C:/Program Files (x86)/Microsoft/Edge Beta/Application/msedge.exe")
-    },
-    dev: () => {
-      return normalize("C:/Program Files (x86)/Microsoft/Edge Dev/Application/msedge.exe")
-    },
-    canary: formEdgeCanaryAppPath,
-  }
-  const possiblePath = paths[channel]()
-  if (canAccess(possiblePath)) {
-    return possiblePath
-  }
-  return new Error(`Microsoft Edge (${channel}) not installed`)
-}
-
-const darwin = (channel) => {
-  const installations = []
-  const defaultAppPaths = [
-    "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
-  ].filter(Boolean)
-  for (const chromePath of defaultAppPaths) {
-    if (canAccess(chromePath)) {
-      installations.push(chromePath)
+const windows = (channel) => {
+  const findPath = () => {
+    const paths = {
+      stable: normalize("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"),
+      beta: normalize("C:/Program Files (x86)/Microsoft/Edge Beta/Application/msedge.exe"),
+      dev: normalize("C:/Program Files (x86)/Microsoft/Edge Dev/Application/msedge.exe"),
+      canary: normalize(join(os.homedir(), "AppData/Local/Microsoft/Edge SxS/Application/msedge.exe")),
     }
+    const possiblePaths = channel ? [paths[channel]] : Object.values(paths)
+    for (const possiblePath of possiblePaths) {
+      if (possiblePath && canAccess(possiblePath)) {
+        return possiblePath
+      }
+    }
+    throw new Error("Unable to find or access")
   }
-  return installations
+  const findVersion = () => {
+    const exePath = findPath()
+    const applicationFolder = dirname(exePath)
+    const contents = fs.readdirSync(applicationFolder)
+    return contents.find((name) => versionRegEx.test(name))
+  }
+  return findVersion()
 }
 
-module.exports = (channel = "stable") => {
-  if (process.platform === "win32") {
-    return win32(channel)
+const macos = (channel) => {
+  const findPath = () => {
+    const paths = {
+      app: "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
+      stable: "edge",
+      canary: "edge-canary",
+      beta: "edge-beta",
+      dev: "edge-dev",
+    }
+    const possiblePaths = channel ? [paths[channel]] : Object.values(paths)
+    for (const possiblePath of possiblePaths) {
+      if (possiblePath && canAccess(possiblePath)) {
+        return possiblePath
+      }
+    }
+    throw new Error("Unable to find or access")
   }
-  if (process.platform === "darwin") {
-    return darwin(channel)
+  const findVersion = () => {
+    const exePath = findPath()
+    const output = execFileSync(exePath, ["--version"])
+    return output
   }
+  return findVersion()
+}
+
+const linux = () => {
   throw new Error("Unsupported platform " + process.platform)
 }
+
+module.exports = (() => {
+  switch (process.platform) {
+    case "darwin":
+      return macos
+    case "win32":
+      return windows
+    default:
+      return linux
+  }
+})()
