@@ -1,62 +1,27 @@
-# node-module-boilerplate
+# Find edge version
 
-> Boilerplate to kickstart creating a Node.js module
+[![Build Status](https://dev.azure.com/ksathyanm/GitHub/_apis/build/status/ksathyanm.find-edge-version?branchName=master)](https://dev.azure.com/ksathyanm/GitHub/_build/latest?definitionId=1&branchName=master)
+[![NPM Version](https://img.shields.io/npm/v/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
+[![Node.js Version](https://img.shields.io/node/v/find-edge-version)](https://nodejs.org/en/download/)
+[![NPM Downloads](https://img.shields.io/npm/dw/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
+[![Known Vulnerabilities](https://snyk.io/test/npm/find-edge-version/badge.svg)](https://snyk.io/test/npm/find-edge-version)
 
-This is what I use for [my own modules](https://www.npmjs.com/~ksathyanm).
-
-
-## Getting started
-
-**Click the "Use this template" button.**
-
-Alternatively, create a new directory and then run:
-
-```
-$ curl -fsSL https://github.com/ksathyanm/node-module-boilerplate/archive/master.tar.gz | tar -xz --strip-components=1
-```
-
----
-
-**Remove everything from here and above**
-
----
-
-# node-module-boilerplate [![Build Status](https://dev.azure.com/ksathyanm/GitHub/_apis/build/status/ksathyanm.node-module-boilerplate?branchName=master)](https://dev.azure.com/ksathyanm/GitHub/_build/latest?definitionId=2&branchName=master)
-
-> My awesome module
+Finds installed Edge version.
 
 ## Install
 
-```
-$ npm install node-module-boilerplate
+```bash
+npm install find-edge-version
 ```
 
 ## Usage
 
 ```js
-const unicornFun = require("node-module-boilerplate");
+const findEdgeVersion = require("find-edge-version")
 
-unicornFun("unicorns");
-//=> "unicorns & rainbows"
+const example = async () => {
+  const edgeVersion = await findEdgeVersion()
+  console.log(`Your Edge version is ${edgeVersion}`)
+}
+example()
 ```
-
-## API
-
-### unicornFun(input, options?)
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-Type: `object`
-
-##### postfix
-
-Type: `string`<br>
-Default: `rainbows`
-
-Lorem ipsum.

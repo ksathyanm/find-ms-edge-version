@@ -1,13 +1,13 @@
 {
-  "name": "node-module-boilerplate",
+  "name": "find-edge-version",
   "version": "0.0.0",
   "description": "My awesome module",
   "keywords": [
     "boilerplate"
   ],
-  "homepage": "https://github.com/ksathyanm/node-module-boilerplate#readme",
-  "bugs": "https://github.com/ksathyanm/node-module-boilerplate/issues",
-  "repository": "ksathyanm/node-module-boilerplate",
+  "homepage": "https://github.com/ksathyanm/find-edge-version#readme",
+  "bugs": "https://github.com/ksathyanm/find-edge-version/issues",
+  "repository": "ksathyanm/find-edge-version",
   "license": "MIT",
   "author": "Sathyamoorthi Kandhasamy",
   "files": [
