@@ -6,8 +6,8 @@ describe("find edge version", () => {
   it("finds edge version", async () => {
     try {
       const { path, version } = await findEdgeVersion()
-      console.log(path)
-      console.log(version)
+      console.log(`Path: ${path}`)
+      console.log(`Version: ${version}`)
       expect(version).to.exist
       expect(version).to.not.be.empty
       expect(version).to.be.a("string")
