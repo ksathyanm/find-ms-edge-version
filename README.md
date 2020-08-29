@@ -20,8 +20,8 @@ npm install find-edge-version
 const findEdgeVersion = require("find-edge-version")
 
 const example = async () => {
-  const edgeVersion = await findEdgeVersion()
-  console.log(`Your Edge version is ${edgeVersion}`)
+  const { path, version } = await findEdgeVersion()
+  console.log(`Found \`${version}\` version of MS Edge browser at \`${path}\``)
 }
 example()
 ```
