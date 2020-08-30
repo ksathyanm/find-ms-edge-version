@@ -5,7 +5,8 @@
 
 [![NPM Version](https://img.shields.io/npm/v/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
 [![Node.js Version](https://img.shields.io/node/v/find-edge-version)](https://nodejs.org/en/download/)
-[![NPM Downloads](https://img.shields.io/npm/dw/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
+[![NPM Downloads](https://img.shields.io/npm/dm/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
+[![Minified Size](https://img.shields.io/bundlephobia/min/find-edge-version)](https://bundlephobia.com/result?p=find-edge-version)
 [![Known Vulnerabilities](https://snyk.io/test/npm/find-edge-version/badge.svg)](https://snyk.io/test/npm/find-edge-version)
 
 > Finds installed Edge version.
