@@ -8,7 +8,7 @@
 [![NPM Downloads](https://img.shields.io/npm/dw/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
 [![Known Vulnerabilities](https://snyk.io/test/npm/find-edge-version/badge.svg)](https://snyk.io/test/npm/find-edge-version)
 
-Finds installed Edge version.
+> Finds installed Edge version.
 
 ## Install
 
