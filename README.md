@@ -3,11 +3,11 @@
 ![Test windows status](https://github.com/ksathyanm/find-edge-version/workflows/test-windows/badge.svg)
 ![Test macOS status](https://github.com/ksathyanm/find-edge-version/workflows/test-macOS/badge.svg)
 
-[![NPM Version](https://img.shields.io/npm/v/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
-[![Node.js Version](https://img.shields.io/node/v/find-edge-version)](https://nodejs.org/en/download/)
-[![NPM Downloads](https://img.shields.io/npm/dm/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
-[![Minified Size](https://img.shields.io/bundlephobia/min/find-edge-version)](https://bundlephobia.com/result?p=find-edge-version)
-[![Known Vulnerabilities](https://snyk.io/test/npm/find-edge-version/badge.svg)](https://snyk.io/test/npm/find-edge-version)
+[![npm version](https://badge.fury.io/js/find-edge-version.svg)](https://badge.fury.io/js/find-edge-version)
+[![Node.js version](https://img.shields.io/node/v/find-edge-version)](https://nodejs.org/en/download/)
+[![npm downloads](https://img.shields.io/npm/dm/find-edge-version)](https://www.npmjs.com/package/find-edge-version)
+[![Minified size](https://img.shields.io/bundlephobia/min/find-edge-version)](https://bundlephobia.com/result?p=find-edge-version)
+[![Known vulnerabilities](https://snyk.io/test/npm/find-edge-version/badge.svg)](https://snyk.io/test/npm/find-edge-version)
 
 > Finds installed Edge version.
 
